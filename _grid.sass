@@ -1,0 +1,735 @@
+// @@@@@@@@@@   @@@  @@@  @@@  @@@  @@@@@@@
+// @@@@@@@@@@@  @@@  @@@@ @@@  @@@  @@@@@@@@
+// @@! @@! @@!  @@!  @@!@!@@@  @@!  @@!  @@@
+// !@! !@! !@!  !@!  !@!!@!@!  !@!  !@!  @!@
+// @!! !!@ @!@  !!@  @!@ !!@!  !!@  @!@  !@!
+// !@!   ! !@!  !!!  !@!  !!!  !!!  !@!  !!!
+// !!:     !!:  !!:  !!:  !!!  !!:  !!:  !!!
+// :!:     :!:  :!:  :!:  !:!  :!:  :!:  !:!
+// :::     ::    ::   ::   ::   ::   :::: ::
+//  :      :    :    ::    :   :    :: :  :
+
+
+// Minid.net
+// SI VIS AD MAIORA RERUM UTUNTUR.
+
+// ###########################################################
+// GRID
+// ###########################################################
+
+$grid-gutter-width:             1rem
+$grid-outer-margin:             2rem
+$grid-gutter-compensation:      (($grid-gutter-width / 2 ) * -1 )
+$grid-half-gutter-width:        (($grid-gutter-width / 2 ))
+$grid-screen-xs-min:            30rem
+$grid-screen-sm-min:            48rem
+$grid-screen-md-min:            62rem
+$grid-screen-lg-min:            80rem
+$grid-container-sm:             45rem + ($grid-outer-margin * 2)
+$grid-container-md:             60rem + ($grid-outer-margin * 2)
+$grid-container-lg:             80rem + ($grid-outer-margin * 2)
+
+$grid-unit-12:                  100%
+$grid-unit-11:                  (($grid-unit-12 / 12) * 11)
+$grid-unit-10:                  (($grid-unit-12 / 12) * 10)
+$grid-unit-9:                   (($grid-unit-12 / 12) * 9)
+$grid-unit-8:                   (($grid-unit-12 / 12) * 8)
+$grid-unit-7:                   (($grid-unit-12 / 12) * 7)
+$grid-unit-6:                   (($grid-unit-12 / 12) * 6)
+$grid-unit-5:                   (($grid-unit-12 / 12) * 5)
+$grid-unit-4:                   (($grid-unit-12 / 12) * 4)
+$grid-unit-3:                   (($grid-unit-12 / 12) * 3)
+$grid-unit-2:                   (($grid-unit-12 / 12) * 2)
+$grid-unit-1:                   ($grid-unit-12 / 12)
+
+
+// ###########################################################
+// CONTAINER
+// ###########################################################
+
+.container
+  margin:
+    left: auto
+    right: auto
+
+
+  &--fluid
+    margin:
+      left: auto
+      right: auto
+    padding:
+      top: $grid-outer-margin / 2
+      right: $grid-outer-margin
+      bottom: $grid-outer-margin / 2
+      left: $grid-outer-margin
+
+
+// ###########################################################
+// ROW
+// ###########################################################
+
+.row
+  box-sizing: border-box
+
+  // for webkits
+  display: -webkit-flex
+  -webkit-flex: 0 1 auto
+  -webkit-flex-direction: row
+  -webkit-flex-wrap: wrap
+
+  display: flex
+  flex: 0 1 auto
+  flex:
+    direction: row
+    wrap: wrap
+  margin:
+    left: -$grid-half-gutter-width
+    right: -$grid-half-gutter-width
+
+
+  &--reverse
+    -webkit-flex: row-reverse
+    flex:
+      direction: row-reverse
+
+  &__xs,
+  &__sm,
+  &__md,
+  &__lg
+
+    &--start
+      -webkit-justify-content: flex-start
+      justify-content: flex-start
+      text-align: start
+
+    &--center
+      -webkit-justify-content: center
+      justify-content: center
+      text-align: center
+
+    &--end
+      -webkit-justify-content: flex-end
+      justify-content: flex-end
+      text-align: end
+
+    &--top
+      -webkit-align-items: flex-start
+      align-items: flex-start
+
+    &--middle
+      -webkit-align-items: center
+      align-items: center
+
+    &--bottom
+      -webkit-align-items: flex-end
+      align-items: flex-end
+
+    &--around
+      -webkit-align-items: space-around
+      align-items: space-around
+
+    &--between
+      -webkit-align-items: space-between
+      align-items: space-between
+
+    &--first
+      -webkit-order: -1
+      order: -1
+
+    &--last
+      -webkit-order: 1
+      order: 1
+
+
+// ###########################################################
+// COLUMNAE
+// ###########################################################
+
+
+.col
+
+  &--reverse
+    -webkit-flex-direction: column-reverse
+    flex:
+      direction: column-reverse
+
+  &__xs
+
+    &--self,
+    &--1,
+    &--2,
+    &--3,
+    &--4,
+    &--5,
+    &--6,
+    &--7,
+    &--8,
+    &--9,
+    &--10,
+    &--11,
+    &--12,
+    &-offset--1,
+    &-offset--2,
+    &-offset--3,
+    &-offset--4,
+    &-offset--5,
+    &-offset--6,
+    &-offset--7,
+    &-offset--8,
+    &-offset--9,
+    &-offset--10,
+    &-offset--11,
+    &-offset--12,
+      box:
+        sizing: border-box
+
+      // only for webkit
+      -webkit-flex: 0 0 auto
+
+      flex: 0 0 auto
+      padding:
+        right: $grid-half-gutter-width
+        left: $grid-half-gutter-width
+
+    // unit value def
+
+    &--1
+      //only webkit
+      -webkit-flex-basis: $grid-unit-1
+      flex-basis: $grid-unit-1
+      max-width: $grid-unit-1
+    &--2
+      //only webkit
+      -webkit-flex-basis: $grid-unit-2
+      flex-basis: $grid-unit-2
+      max-width: $grid-unit-2
+    &--3
+      //only webkit
+      -webkit-flex-basis: $grid-unit-3
+      flex-basis: $grid-unit-3
+      max-width: $grid-unit-3
+    &--4
+      //only webkit
+      -webkit-flex-basis: $grid-unit-4
+      flex-basis: $grid-unit-4
+      max-width: $grid-unit-4
+    &--5
+      //only webkit
+      -webkit-flex-basis: $grid-unit-5
+      flex-basis: $grid-unit-5
+      max-width: $grid-unit-5
+    &--6
+      //only webkit
+      -webkit-flex-basis: $grid-unit-6
+      flex-basis: $grid-unit-6
+      max-width: $grid-unit-6
+    &--7
+      //only webkit
+      -webkit-flex-basis: $grid-unit-7
+      flex-basis: $grid-unit-7
+      max-width: $grid-unit-7
+    &--8
+      //only webkit
+      -webkit-flex-basis: $grid-unit-8
+      flex-basis: $grid-unit-8
+      max-width: $grid-unit-8
+    &--9
+      //only webkit
+      -webkit-flex-basis: $grid-unit-9
+      flex-basis: $grid-unit-9
+      max-width: $grid-unit-9
+    &--10
+      //only webkit
+      -webkit-flex-basis: $grid-unit-10
+      flex-basis: $grid-unit-10
+      max-width: $grid-unit-10
+    &--11
+      //only webkit
+      -webkit-flex-basis: $grid-unit-11
+      flex-basis: $grid-unit-11
+      max-width: $grid-unit-11
+    &--12
+      //only webkit
+      -webkit-flex-basis: $grid-unit-12
+      flex-basis: $grid-unit-12
+      max-width: $grid-unit-12
+
+    // offsets
+
+    &-offset--1
+      margin-left: $grid-unit-1
+
+    &-offset--2
+      margin-left: $grid-unit-2
+
+    &-offset--3
+      margin-left: $grid-unit-3
+
+    &-offset--4
+      margin-left: $grid-unit-4
+
+    &-offset--5
+      margin-left: $grid-unit-5
+
+    &-offset--6
+      margin-left: $grid-unit-6
+
+    &-offset--7
+      margin-left: $grid-unit-7
+
+    &-offset--8
+      margin-left: $grid-unit-8
+
+    &-offset--9
+      margin-left: $grid-unit-9
+
+    &-offset--10
+      margin-left: $grid-unit-10
+
+    &-offset--11
+      margin-left: $grid-unit-11
+
+    // Self is used as a special unit. It will fit into one line, without specifing the unit
+    // number
+
+    &--self
+      // webkit version
+      -webkit-flex-grow: 1
+      -webkit-flex-basis: 0
+      flex:
+        grow: 1
+        basis: 0
+      max-width: 100%
+
+
+
+
+
+@media only screen and (min-width: $grid-screen-sm-min)
+
+  .container
+    width: $grid-container-sm
+
+    .col
+
+    &--reverse
+      -webkit-flex-direction: column-reverse
+      flex:
+        direction: column-reverse
+
+    &__sm
+
+      &--self,
+      &--1,
+      &--2,
+      &--3,
+      &--4,
+      &--5,
+      &--6,
+      &--7,
+      &--8,
+      &--9,
+      &--10,
+      &--11,
+      &--12,
+      &-offset--1,
+      &-offset--2,
+      &-offset--3,
+      &-offset--4,
+      &-offset--5,
+      &-offset--6,
+      &-offset--7,
+      &-offset--8,
+      &-offset--9,
+      &-offset--10,
+      &-offset--11,
+      &-offset--12,
+        box:
+          sizing: border-box
+        -webkit-flex: 0 0 auto
+        flex: 0 0 auto
+        padding:
+          right: $grid-half-gutter-width
+          left: $grid-half-gutter-width
+
+      &--1
+        -webkit-flex-basis: $grid-unit-1
+        flex-basis: $grid-unit-1
+        max-width: $grid-unit-1
+      &--2
+        -webkit-flex-basis: $grid-unit-2
+        flex-basis: $grid-unit-2
+        max-width: $grid-unit-2
+      &--3
+        -webkit-flex-basis: $grid-unit-3
+        flex-basis: $grid-unit-3
+        max-width: $grid-unit-3
+      &--4
+        -webkit-flex-basis: $grid-unit-4
+        flex-basis: $grid-unit-4
+        max-width: $grid-unit-4
+      &--5
+        -webkit-flex-basis: $grid-unit-5
+        flex-basis: $grid-unit-5
+        max-width: $grid-unit-5
+      &--6
+        -webkit-flex-basis: $grid-unit-6
+        flex-basis: $grid-unit-6
+        max-width: $grid-unit-6
+      &--7
+        -webkit-flex-basis: $grid-unit-7
+        flex-basis: $grid-unit-7
+        max-width: $grid-unit-7
+      &--8
+        -webkit-flex-basis: $grid-unit-8
+        flex-basis: $grid-unit-8
+        max-width: $grid-unit-8
+      &--9
+        -webkit-flex-basis: $grid-unit-9
+        flex-basis: $grid-unit-9
+        max-width: $grid-unit-9
+      &--10
+        -webkit-flex-basis: $grid-unit-10
+        flex-basis: $grid-unit-10
+        max-width: $grid-unit-10
+      &--11
+        -webkit-flex-basis: $grid-unit-11
+        flex-basis: $grid-unit-11
+        max-width: $grid-unit-11
+      &--12
+        -webkit-flex-basis: $grid-unit-12
+        flex-basis: $grid-unit-12
+        max-width: $grid-unit-12
+
+      // offsets
+
+      &-offset--1
+        margin-left: $grid-unit-1
+
+      &-offset--2
+        margin-left: $grid-unit-2
+
+      &-offset--3
+        margin-left: $grid-unit-3
+
+      &-offset--4
+        margin-left: $grid-unit-4
+
+      &-offset--5
+        margin-left: $grid-unit-5
+
+      &-offset--6
+        margin-left: $grid-unit-6
+
+      &-offset--7
+        margin-left: $grid-unit-7
+
+      &-offset--8
+        margin-left: $grid-unit-8
+
+      &-offset--9
+        margin-left: $grid-unit-9
+
+      &-offset--10
+        margin-left: $grid-unit-10
+
+      &-offset--11
+        margin-left: $grid-unit-11
+
+      // Self is used as a special unit. It will fit into one line, without specifing the unit
+      // number
+
+      &--self
+        -webkit-flex-grow: 1
+        -webkit-flex-basis: 0
+        flex:
+          grow: 1
+          basis: 0
+        max-width: 100%
+
+@media only screen and (min-width: $grid-screen-md-min)
+
+  .container
+    // background: blue
+    width: $grid-container-md
+
+  .col
+
+    &--reverse
+      -webkit-flex-direction: column-reverse
+      flex:
+        direction: column-reverse
+
+    &__md
+
+      &--self,
+      &--1,
+      &--2,
+      &--3,
+      &--4,
+      &--5,
+      &--6,
+      &--7,
+      &--8,
+      &--9,
+      &--10,
+      &--11,
+      &--12,
+      &-offset--1,
+      &-offset--2,
+      &-offset--3,
+      &-offset--4,
+      &-offset--5,
+      &-offset--6,
+      &-offset--7,
+      &-offset--8,
+      &-offset--9,
+      &-offset--10,
+      &-offset--11,
+      &-offset--12,
+        box:
+          sizing: border-box
+        -webkit-flex: 0 0 auto
+        flex: 0 0 auto
+        padding:
+          right: $grid-half-gutter-width
+          left: $grid-half-gutter-width
+
+      &--1
+        -webkit-flex-basis: $grid-unit-1
+        flex-basis: $grid-unit-1
+        max-width: $grid-unit-1
+      &--2
+        -webkit-flex-basis: $grid-unit-2
+        flex-basis: $grid-unit-2
+        max-width: $grid-unit-2
+      &--3
+        -webkit-flex-basis: $grid-unit-3
+        flex-basis: $grid-unit-3
+        max-width: $grid-unit-3
+      &--4
+        -webkit-flex-basis: $grid-unit-4
+        flex-basis: $grid-unit-4
+        max-width: $grid-unit-4
+      &--5
+        -webkit-flex-basis: $grid-unit-5
+        flex-basis: $grid-unit-5
+        max-width: $grid-unit-5
+      &--6
+        -webkit-flex-basis: $grid-unit-6
+        flex-basis: $grid-unit-6
+        max-width: $grid-unit-6
+      &--7
+        -webkit-flex-basis: $grid-unit-7
+        flex-basis: $grid-unit-7
+        max-width: $grid-unit-7
+      &--8
+        -webkit-flex-basis: $grid-unit-8
+        flex-basis: $grid-unit-8
+        max-width: $grid-unit-8
+      &--9
+        -webkit-flex-basis: $grid-unit-9
+        flex-basis: $grid-unit-9
+        max-width: $grid-unit-9
+      &--10
+        -webkit-flex-basis: $grid-unit-10
+        flex-basis: $grid-unit-10
+        max-width: $grid-unit-10
+      &--11
+        -webkit-flex-basis: $grid-unit-11
+        flex-basis: $grid-unit-11
+        max-width: $grid-unit-11
+      &--12
+        -webkit-flex-basis: $grid-unit-12
+        flex-basis: $grid-unit-12
+        max-width: $grid-unit-12
+
+      // offsets
+
+      &-offset--1
+        margin-left: $grid-unit-1
+
+      &-offset--2
+        margin-left: $grid-unit-2
+
+      &-offset--3
+        margin-left: $grid-unit-3
+
+      &-offset--4
+        margin-left: $grid-unit-4
+
+      &-offset--5
+        margin-left: $grid-unit-5
+
+      &-offset--6
+        margin-left: $grid-unit-6
+
+      &-offset--7
+        margin-left: $grid-unit-7
+
+      &-offset--8
+        margin-left: $grid-unit-8
+
+      &-offset--9
+        margin-left: $grid-unit-9
+
+      &-offset--10
+        margin-left: $grid-unit-10
+
+      &-offset--11
+        margin-left: $grid-unit-11
+
+      // Self is used as a special unit. It will fit into one line, without specifing the unit
+      // number
+
+      &--self
+        -webkit-flex-grow: 1
+        -webkit-flex-basis: 0
+        flex:
+          grow: 1
+          basis: 0
+        max-width: 100%
+
+
+@media only screen and (min-width: $grid-screen-lg-min)
+
+  .container
+    // background: orange
+    width: $grid-container-lg
+
+  .col
+
+    &--reverse
+      -webkit-flex-direction: column-reverse
+      flex:
+        direction: column-reverse
+
+    &__lg
+
+      &--self,
+      &--1,
+      &--2,
+      &--3,
+      &--4,
+      &--5,
+      &--6,
+      &--7,
+      &--8,
+      &--9,
+      &--10,
+      &--11,
+      &--12,
+      &-offset--1,
+      &-offset--2,
+      &-offset--3,
+      &-offset--4,
+      &-offset--5,
+      &-offset--6,
+      &-offset--7,
+      &-offset--8,
+      &-offset--9,
+      &-offset--10,
+      &-offset--11,
+      &-offset--12,
+        box:
+          sizing: border-box
+        -webkit-flex: 0 0 auto
+        flex: 0 0 auto
+        padding:
+          right: $grid-half-gutter-width
+          left: $grid-half-gutter-width
+
+      &--1
+        -webkit-flex-basis: $grid-unit-1
+        flex-basis: $grid-unit-1
+        max-width: $grid-unit-1
+      &--2
+        -webkit-flex-basis: $grid-unit-2
+        flex-basis: $grid-unit-2
+        max-width: $grid-unit-2
+      &--3
+        -webkit-flex-basis: $grid-unit-3
+        flex-basis: $grid-unit-3
+        max-width: $grid-unit-3
+      &--4
+        -webkit-flex-basis: $grid-unit-4
+        flex-basis: $grid-unit-4
+        max-width: $grid-unit-4
+      &--5
+        -webkit-flex-basis: $grid-unit-5
+        flex-basis: $grid-unit-5
+        max-width: $grid-unit-5
+      &--6
+        -webkit-flex-basis: $grid-unit-6
+        flex-basis: $grid-unit-6
+        max-width: $grid-unit-6
+      &--7
+        -webkit-flex-basis: $grid-unit-7
+        flex-basis: $grid-unit-7
+        max-width: $grid-unit-7
+      &--8
+        -webkit-flex-basis: $grid-unit-8
+        flex-basis: $grid-unit-8
+        max-width: $grid-unit-8
+      &--9
+        -webkit-flex-basis: $grid-unit-9
+        flex-basis: $grid-unit-9
+        max-width: $grid-unit-9
+      &--10
+        -webkit-flex-basis: $grid-unit-10
+        flex-basis: $grid-unit-10
+        max-width: $grid-unit-10
+      &--11
+        -webkit-flex-basis: $grid-unit-11
+        flex-basis: $grid-unit-11
+        max-width: $grid-unit-11
+      &--12
+        -webkit-flex-basis: $grid-unit-12
+        flex-basis: $grid-unit-12
+        max-width: $grid-unit-12
+
+      // offsets
+
+      &-offset--1
+        margin-left: $grid-unit-1
+
+      &-offset--2
+        margin-left: $grid-unit-2
+
+      &-offset--3
+        margin-left: $grid-unit-3
+
+      &-offset--4
+        margin-left: $grid-unit-4
+
+      &-offset--5
+        margin-left: $grid-unit-5
+
+      &-offset--6
+        margin-left: $grid-unit-6
+
+      &-offset--7
+        margin-left: $grid-unit-7
+
+      &-offset--8
+        margin-left: $grid-unit-8
+
+      &-offset--9
+        margin-left: $grid-unit-9
+
+      &-offset--10
+        margin-left: $grid-unit-10
+
+      &-offset--11
+        margin-left: $grid-unit-11
+
+      // Self is used as a special unit. It will fit into one line, without specifing the unit
+      // number
+
+      &--self
+        -webkit-flex-grow: 1
+        -webkit-flex-basis: 0
+        flex:
+          grow: 1
+          basis: 0
+        max-width: 100%
