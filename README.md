@@ -36,6 +36,7 @@ A typical row with 3 colum would be:
 
 You can make them also with self and achieve the same result:
 
+```
 .container
   .row
     .col__lg--self
