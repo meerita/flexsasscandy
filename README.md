@@ -34,6 +34,15 @@ A typical row with 3 colum would be:
       ...
 ```
 
+You can differentiate cols between viewports easily:
+
+```
+.container
+  .row
+    .col__lg--6.col__md--6.col__sm--4.col__xs--12
+      ...
+```
+
 You can make them also with self and achieve the same result:
 
 ```
@@ -51,7 +60,7 @@ You can apply some attributes to `.row` anytime:
 
 ```
 .container
-  .row.row--reverse
+  .row.row__lg--reverse
     .col__lg--4
       3
     .col__lg--4
