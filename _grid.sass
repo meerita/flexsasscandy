@@ -135,6 +135,7 @@ $grid-unit-1:                   ($grid-unit-12 / 12)
       order: 1
 
     &--reverse
+      -webkit-flex-direction: row-reverse
       -webkit-flex: row-reverse
       flex:
         direction: row-reverse
@@ -444,11 +445,6 @@ $grid-unit-1:                   ($grid-unit-12 / 12)
 
   .col
 
-    &--reverse
-      -webkit-flex-direction: column-reverse
-      flex:
-        direction: column-reverse
-
     &__md
 
       &--self,
@@ -587,11 +583,6 @@ $grid-unit-1:                   ($grid-unit-12 / 12)
     width: $grid-container-lg
 
   .col
-
-    &--reverse
-      -webkit-flex-direction: column-reverse
-      flex:
-        direction: column-reverse
 
     &__lg
 
