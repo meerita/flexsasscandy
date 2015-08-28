@@ -86,12 +86,6 @@ $grid-unit-1:                   ($grid-unit-12 / 12)
     left: -$grid-half-gutter-width
     right: -$grid-half-gutter-width
 
-
-  &--reverse
-    -webkit-flex: row-reverse
-    flex:
-      direction: row-reverse
-
   &__xs,
   &__sm,
   &__md,
@@ -140,6 +134,11 @@ $grid-unit-1:                   ($grid-unit-12 / 12)
       -webkit-order: 1
       order: 1
 
+    &--reverse
+      -webkit-flex: row-reverse
+      flex:
+        direction: row-reverse
+
 
 // ###########################################################
 // COLUMNAE
@@ -147,11 +146,6 @@ $grid-unit-1:                   ($grid-unit-12 / 12)
 
 
 .col
-
-  &--reverse
-    -webkit-flex-direction: column-reverse
-    flex:
-      direction: column-reverse
 
   &__xs
 
@@ -310,12 +304,7 @@ $grid-unit-1:                   ($grid-unit-12 / 12)
   .container
     width: $grid-container-sm
 
-    .col
-
-    &--reverse
-      -webkit-flex-direction: column-reverse
-      flex:
-        direction: column-reverse
+  .col
 
     &__sm
 
